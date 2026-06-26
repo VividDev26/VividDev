@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --vivid-purple: #7F77DD;
+  --soft-violet: #AFA9EC;
+  --lavender-tint: #EEEDFE;
+  --deep-navy: #26215C;
+  --off-white: #F8F7FF;
+  --border: #E2E0F7;
+  --muted: #888780;
+  --body: #5F5E5A;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--off-white); color: var(--body); font-family: var(--font-geist-sans, sans-serif); }
