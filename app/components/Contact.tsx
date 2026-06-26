@@ -5,10 +5,45 @@ import { IconMail, IconWorld, IconClock } from "@tabler/icons-react";
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", type: "Landing page — $999", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    
+    // Prevent double submissions while loading
+    if (loading) return;
+
+    // Quick client-side validation check
+    if (!form.name || !form.email || !form.message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        // Clear fields post-success
+        setForm({ name: "", email: "", type: "Landing page — $999", message: "" });
+      } else {
+        const errData = await response.json();
+        alert(errData.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Failed to connect to the server. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,7 +75,7 @@ export default function Contact() {
               <p style={{ fontSize: 12, color: "#5F5E5A" }}>We'll be in touch within 24 hours.</p>
             </div>
           ) : (
-            <>
+            <form onSubmit={handleSubmit}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 10 }}>
                 {[
                   { label: "Name", key: "name", placeholder: "Your name", type: "text" },
@@ -58,6 +93,7 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
+              
               <div style={{ marginBottom: 10 }}>
                 <label style={{ fontSize: 11, fontWeight: 500, color: "#534AB7", display: "block", marginBottom: 5 }}>Project type</label>
                 <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} style={{ width: "100%", background: "#fff", border: "0.5px solid #AFA9EC", borderRadius: 7, padding: "9px 12px", fontSize: 13, color: "#26215C" }}>
@@ -67,6 +103,7 @@ export default function Contact() {
                   <option>Not sure yet</option>
                 </select>
               </div>
+
               <div style={{ marginBottom: 10 }}>
                 <label style={{ fontSize: 11, fontWeight: 500, color: "#534AB7", display: "block", marginBottom: 5 }}>Tell us about your project</label>
                 <textarea
@@ -76,10 +113,25 @@ export default function Contact() {
                   style={{ width: "100%", background: "#fff", border: "0.5px solid #AFA9EC", borderRadius: 7, padding: "9px 12px", fontSize: 13, color: "#26215C", resize: "none", height: 80 }}
                 />
               </div>
-              <button onClick={handleSubmit} style={{ width: "100%", background: "#7F77DD", color: "#EEEDFE", border: "none", borderRadius: 7, padding: 11, fontSize: 13, fontWeight: 500, cursor: "pointer" }}>
-                Send message →
+
+              <button 
+                type="submit" 
+                disabled={loading}
+                style={{ 
+                  width: "100%", 
+                  background: loading ? "#AFA9EC" : "#7F77DD", 
+                  color: "#EEEDFE", 
+                  border: "none", 
+                  borderRadius: 7, 
+                  padding: 11, 
+                  fontSize: 13, 
+                  fontWeight: 500, 
+                  cursor: loading ? "not-allowed" : "pointer" 
+                }}
+              >
+                {loading ? "Sending..." : "Send message →"}
               </button>
-            </>
+            </form>
           )}
         </div>
       </div>

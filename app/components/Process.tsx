@@ -1,3 +1,5 @@
+"use client";
+import { Fragment } from "react";
 import { IconMessageCircle, IconCode, IconRocket, IconArrowRight } from "@tabler/icons-react";
 
 const steps = [
@@ -37,11 +39,11 @@ export default function Process() {
         <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: ".08em", textTransform: "uppercase", color: "#888780", marginBottom: 8 }}>How we work</p>
         <h2 style={{ fontSize: 22, fontWeight: 500, color: "#26215C", marginBottom: 28 }}>Three steps from idea to live.</h2>
 
-        {/* Steps */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr", gap: 0, marginBottom: 24, alignItems: "start" }}>
+        {/* Steps Container */}
+        <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr", gap: 0, marginBottom: 24, alignItems: "start" }}>
           {steps.map((step, i) => (
-            <>
-              <div key={step.num} style={{ background: "#fff", border: "0.5px solid #E2E0F7", borderRadius: 12, padding: "20px 18px" }}>
+            <Fragment key={step.num}>
+              <div style={{ background: "#fff", border: "0.5px solid #E2E0F7", borderRadius: 12, padding: "20px 18px" }}>
                 <span style={{ fontSize: 11, fontWeight: 500, color: "#7F77DD", background: "#EEEDFE", display: "inline-block", padding: "3px 9px", borderRadius: 20, marginBottom: 12 }}>{step.num}</span>
                 <step.icon size={20} color="#7F77DD" style={{ display: "block", marginBottom: 8 }} />
                 <p style={{ fontSize: 13, fontWeight: 500, color: "#26215C", marginBottom: 6 }}>{step.title}</p>
@@ -53,7 +55,7 @@ export default function Process() {
                 </div>
               </div>
               {i < steps.length - 1 && (
-                <div key={`conn-${i}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "44px 4px 0" }}>
+                <div className="process-connector" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "44px 4px 0" }}>
                   <div style={{ display: "flex", alignItems: "center", width: 36 }}>
                     <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#AFA9EC", flexShrink: 0 }} />
                     <div style={{ flex: 1, height: 1, background: "#AFA9EC" }} />
@@ -61,7 +63,7 @@ export default function Process() {
                   </div>
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
 
@@ -79,6 +81,19 @@ export default function Process() {
           ))}
         </div>
       </div>
+
+      {/* Responsive Styles block to fix mobile squishing */}
+      <style>{`
+        @media (max-width: 768px) {
+          .process-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+          .process-connector {
+            display: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
