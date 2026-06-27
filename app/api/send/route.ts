@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       from: process.env.GMAIL_USER,
       to: process.env.GMAIL_USER, // 👈 Sends the notification straight back to yourself
       replyTo: email, // 👈 Clicking "Reply" in your email app will automatically reply to the lead!
-      subject: `🔥 New VividDev Lead: ${name}`,
+      subject: `Vivid Dev: ${name}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #26215C;">
           <h2>New Contact Form Submission</h2>
