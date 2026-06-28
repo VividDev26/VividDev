@@ -1,4 +1,4 @@
-tsximport heroDevicesImg from '../../images/Hero-Mockups.png';
+import heroDevicesImg from '../../images/Hero-Mockups.png';
 
 const badges = ["Next.js", "TypeScript", "React", "Supabase", "Stripe", "Figma-to-code"];
 
