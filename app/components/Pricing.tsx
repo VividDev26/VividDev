@@ -88,7 +88,7 @@ export default function Pricing() {
             <p style={{ fontSize: 13, fontWeight: 500, color: "#1A1540" }}>Additional AI chatbot</p>
             <span style={{ fontSize: 10, fontWeight: 500, background: "#3D2E8F", color: "#E8E4FF", padding: "2px 8px", borderRadius: 20 }}>New</span>
           </div>
-          <p style={{ fontSize: 12, color: "#888780", marginBottom: 20 }}>Add a custom AI assistant to any project, or as a standalone integration.</p>
+          <p style={{ fontSize: 12, color: "#888780", marginBottom: 20 }}>Add a custom AI assistant to any project, or as a standalone integration. Own it forever — no monthly SaaS fees.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>
             {aiTiers.map((t) => (
               <div key={t.name} style={{ background: "#fff", border: "0.5px solid #D8D6EE", borderRadius: 12, padding: "22px 20px" }}>
