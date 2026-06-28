@@ -14,15 +14,15 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section style={{ padding: "56px 28px", background: "#fff", borderTop: "0.5px solid #E2E0F7" }}>
+    <section style={{ padding: "56px 28px", background: "#fff", borderTop: "0.5px solid #D8D6EE" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: ".08em", textTransform: "uppercase", color: "#888780", marginBottom: 8 }}>FAQ</p>
-        <h2 style={{ fontSize: 22, fontWeight: 500, color: "#26215C", marginBottom: 28 }}>Common questions.</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 500, color: "#1A1540", marginBottom: 28 }}>Common questions.</h2>
         {faqs.map((f, i) => (
-          <div key={i} style={{ borderBottom: "0.5px solid #E2E0F7" }}>
+          <div key={i} style={{ borderBottom: "0.5px solid #D8D6EE" }}>
             <button onClick={() => setOpen(open === i ? null : i)} style={{ width: "100%", textAlign: "left", padding: "16px 0", display: "flex", justifyContent: "space-between", alignItems: "center", background: "none", border: "none", cursor: "pointer" }}>
-              <span style={{ fontSize: 13, fontWeight: 500, color: "#26215C" }}>{f.q}</span>
-              <IconChevronDown size={16} color="#7F77DD" style={{ transition: "transform .2s", transform: open === i ? "rotate(180deg)" : "none", flexShrink: 0 }} />
+              <span style={{ fontSize: 13, fontWeight: 500, color: "#1A1540" }}>{f.q}</span>
+              <IconChevronDown size={16} color="#3D2E8F" style={{ transition: "transform .2s", transform: open === i ? "rotate(180deg)" : "none", flexShrink: 0 }} />
             </button>
             {open === i && (
               <p style={{ fontSize: 12, color: "#5F5E5A", lineHeight: 1.6, paddingBottom: 16 }}>{f.a}</p>

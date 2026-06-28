@@ -35,30 +35,30 @@ const explainers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" style={{ padding: "56px 28px", background: "#fff", borderTop: "0.5px solid #E2E0F7" }}>
+    <section id="pricing" style={{ padding: "56px 28px", background: "#fff", borderTop: "0.5px solid #D8D6EE" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: ".08em", textTransform: "uppercase", color: "#888780", marginBottom: 8 }}>Pricing</p>
-        <h2 style={{ fontSize: 22, fontWeight: 500, color: "#26215C", marginBottom: 6 }}>Transparent pricing. No surprises.</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 500, color: "#1A1540", marginBottom: 6 }}>Transparent pricing. No surprises.</h2>
         <p style={{ fontSize: 13, color: "#888780", marginBottom: 28 }}>Fixed-price projects. You always know what you're paying before we start.</p>
 
         {/* Cards */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12, marginBottom: 16 }}>
           {tiers.map((t) => (
-            <div key={t.name} style={{ background: "#fff", border: t.featured ? "2px solid #7F77DD" : "0.5px solid #E2E0F7", borderRadius: 12, padding: "22px 20px" }}>
+            <div key={t.name} style={{ background: "#fff", border: t.featured ? "2px solid #3D2E8F" : "0.5px solid #D8D6EE", borderRadius: 12, padding: "22px 20px" }}>
               {t.featured && (
-                <span style={{ fontSize: 10, fontWeight: 500, background: "#7F77DD", color: "#EEEDFE", padding: "3px 10px", borderRadius: 20, display: "inline-block", marginBottom: 12 }}>Most popular</span>
+                <span style={{ fontSize: 10, fontWeight: 500, background: "#3D2E8F", color: "#E8E4FF", padding: "3px 10px", borderRadius: 20, display: "inline-block", marginBottom: 12 }}>Most popular</span>
               )}
-              <p style={{ fontSize: 13, fontWeight: 500, color: "#26215C", marginBottom: 4 }}>{t.name}</p>
-              <p style={{ fontSize: 28, fontWeight: 500, color: "#26215C", lineHeight: 1, marginBottom: 2 }}>{t.price}</p>
+              <p style={{ fontSize: 13, fontWeight: 500, color: "#1A1540", marginBottom: 4 }}>{t.name}</p>
+              <p style={{ fontSize: 28, fontWeight: 500, color: "#1A1540", lineHeight: 1, marginBottom: 2 }}>{t.price}</p>
               <p style={{ fontSize: 11, color: "#888780", marginBottom: 16 }}>{t.sub}</p>
-              <div style={{ height: "0.5px", background: "#E2E0F7", marginBottom: 14 }} />
+              <div style={{ height: "0.5px", background: "#D8D6EE", marginBottom: 14 }} />
               {t.features.map((f) => (
                 <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: 7, marginBottom: 8 }}>
                   <IconCheck size={13} color="#1D9E75" style={{ flexShrink: 0, marginTop: 2 }} />
                   <span style={{ fontSize: 12, color: "#5F5E5A", lineHeight: 1.4 }}>{f}</span>
                 </div>
               ))}
-              <a href="#contact" style={{ display: "block", textAlign: "center", fontSize: 12, fontWeight: 500, padding: 9, borderRadius: 7, marginTop: 18, textDecoration: "none", ...(t.featured ? { background: "#7F77DD", color: "#EEEDFE" } : { border: "0.5px solid #AFA9EC", color: "#534AB7" }) }}>
+              <a href="#contact" style={{ display: "block", textAlign: "center", fontSize: 12, fontWeight: 500, padding: 9, borderRadius: 7, marginTop: 18, textDecoration: "none", ...(t.featured ? { background: "#3D2E8F", color: "#E8E4FF" } : { border: "0.5px solid #8B7ED4", color: "#3D2E8F" }) }}>
                 {t.cta}
               </a>
             </div>
@@ -66,15 +66,15 @@ export default function Pricing() {
         </div>
 
         {/* Explainer */}
-        <div style={{ background: "#F8F7FF", border: "0.5px solid #E2E0F7", borderRadius: 12, padding: "20px 22px", marginBottom: 16 }}>
+        <div style={{ background: "#F0EFF8", border: "0.5px solid #D8D6EE", borderRadius: 12, padding: "20px 22px", marginBottom: 16 }}>
           <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: ".06em", textTransform: "uppercase", color: "#888780", marginBottom: 14 }}>Not sure which tier fits you?</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10 }}>
             {explainers.map(({ icon: Icon, tier, rule, examples }) => (
-              <div key={tier} style={{ background: "#fff", border: "0.5px solid #E2E0F7", borderRadius: 8, padding: 14 }}>
-                <p style={{ fontSize: 12, fontWeight: 500, color: "#26215C", marginBottom: 6, display: "flex", alignItems: "center", gap: 6 }}>
-                  <Icon size={14} color="#7F77DD" />{tier}
+              <div key={tier} style={{ background: "#fff", border: "0.5px solid #D8D6EE", borderRadius: 8, padding: 14 }}>
+                <p style={{ fontSize: 12, fontWeight: 500, color: "#1A1540", marginBottom: 6, display: "flex", alignItems: "center", gap: 6 }}>
+                  <Icon size={14} color="#3D2E8F" />{tier}
                 </p>
-                <p style={{ fontSize: 12, color: "#534AB7", background: "#EEEDFE", borderRadius: 6, padding: "6px 10px", marginBottom: 8, lineHeight: 1.4 }}>{rule}</p>
+                <p style={{ fontSize: 12, color: "#3D2E8F", background: "#E8E4FF", borderRadius: 6, padding: "6px 10px", marginBottom: 8, lineHeight: 1.4 }}>{rule}</p>
                 <p style={{ fontSize: 11, color: "#888780", lineHeight: 1.6 }}>{examples}</p>
               </div>
             ))}
@@ -83,18 +83,18 @@ export default function Pricing() {
 
         {/* Retainer bar */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
-          <div style={{ background: "#F8F7FF", border: "0.5px solid #E2E0F7", borderRadius: 10, padding: "14px 18px", display: "flex", alignItems: "center", gap: 14 }}>
-            <IconRefresh size={20} color="#7F77DD" style={{ flexShrink: 0 }} />
+          <div style={{ background: "#F0EFF8", border: "0.5px solid #D8D6EE", borderRadius: 10, padding: "14px 18px", display: "flex", alignItems: "center", gap: 14 }}>
+            <IconRefresh size={20} color="#3D2E8F" style={{ flexShrink: 0 }} />
             <div>
-              <p style={{ fontSize: 13, fontWeight: 500, color: "#26215C", marginBottom: 2 }}>Monthly retainer</p>
+              <p style={{ fontSize: 13, fontWeight: 500, color: "#1A1540", marginBottom: 2 }}>Monthly retainer</p>
               <p style={{ fontSize: 11, color: "#888780" }}>Ongoing updates, new features, and priority support.</p>
             </div>
-            <span style={{ fontSize: 15, fontWeight: 500, color: "#7F77DD", marginLeft: "auto", whiteSpace: "nowrap" }}>$650/mo</span>
+            <span style={{ fontSize: 15, fontWeight: 500, color: "#3D2E8F", marginLeft: "auto", whiteSpace: "nowrap" }}>$650/mo</span>
           </div>
-          <div style={{ background: "#F8F7FF", border: "0.5px solid #E2E0F7", borderRadius: 10, padding: "14px 18px", display: "flex", alignItems: "center", gap: 14 }}>
-            <IconCreditCard size={20} color="#7F77DD" style={{ flexShrink: 0 }} />
+          <div style={{ background: "#F0EFF8", border: "0.5px solid #D8D6EE", borderRadius: 10, padding: "14px 18px", display: "flex", alignItems: "center", gap: 14 }}>
+            <IconCreditCard size={20} color="#3D2E8F" style={{ flexShrink: 0 }} />
             <div>
-              <p style={{ fontSize: 13, fontWeight: 500, color: "#26215C", marginBottom: 2 }}>Payment plan available</p>
+              <p style={{ fontSize: 13, fontWeight: 500, color: "#1A1540", marginBottom: 2 }}>Payment plan available</p>
               <p style={{ fontSize: 11, color: "#888780" }}>50% upfront, 50% on delivery. Milestone billing for larger projects.</p>
             </div>
           </div>

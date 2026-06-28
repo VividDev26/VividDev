@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --vivid-purple: #7F77DD;
-  --soft-violet: #AFA9EC;
-  --lavender-tint: #EEEDFE;
-  --deep-navy: #26215C;
-  --off-white: #F8F7FF;
-  --border: #E2E0F7;
+  --vivid-purple: #3D2E8F;
+  --soft-violet: #8B7ED4;
+  --lavender-tint: #E8E4FF;
+  --deep-navy: #1A1540;
+  --off-white: #F0EFF8;
+  --border: #D8D6EE;
   --muted: #888780;
   --body: #5F5E5A;
 }

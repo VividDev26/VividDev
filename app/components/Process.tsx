@@ -34,32 +34,32 @@ const scales = [
 
 export default function Process() {
   return (
-    <section id="process" style={{ padding: "56px 28px", background: "#F8F7FF", borderTop: "0.5px solid #E2E0F7" }}>
+    <section id="process" style={{ padding: "56px 28px", background: "#F0EFF8", borderTop: "0.5px solid #D8D6EE" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <p style={{ fontSize: 11, fontWeight: 500, letterSpacing: ".08em", textTransform: "uppercase", color: "#888780", marginBottom: 8 }}>How we work</p>
-        <h2 style={{ fontSize: 22, fontWeight: 500, color: "#26215C", marginBottom: 28 }}>Three steps from idea to live.</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 500, color: "#1A1540", marginBottom: 28 }}>Three steps from idea to live.</h2>
 
         {/* Steps Container */}
         <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr", gap: 0, marginBottom: 24, alignItems: "start" }}>
           {steps.map((step, i) => (
             <Fragment key={step.num}>
-              <div style={{ background: "#fff", border: "0.5px solid #E2E0F7", borderRadius: 12, padding: "20px 18px" }}>
-                <span style={{ fontSize: 11, fontWeight: 500, color: "#7F77DD", background: "#EEEDFE", display: "inline-block", padding: "3px 9px", borderRadius: 20, marginBottom: 12 }}>{step.num}</span>
-                <step.icon size={20} color="#7F77DD" style={{ display: "block", marginBottom: 8 }} />
-                <p style={{ fontSize: 13, fontWeight: 500, color: "#26215C", marginBottom: 6 }}>{step.title}</p>
+              <div style={{ background: "#fff", border: "0.5px solid #D8D6EE", borderRadius: 12, padding: "20px 18px" }}>
+                <span style={{ fontSize: 11, fontWeight: 500, color: "#3D2E8F", background: "#E8E4FF", display: "inline-block", padding: "3px 9px", borderRadius: 20, marginBottom: 12 }}>{step.num}</span>
+                <step.icon size={20} color="#3D2E8F" style={{ display: "block", marginBottom: 8 }} />
+                <p style={{ fontSize: 13, fontWeight: 500, color: "#1A1540", marginBottom: 6 }}>{step.title}</p>
                 <p style={{ fontSize: 11, color: "#5F5E5A", lineHeight: 1.55, marginBottom: 12 }}>{step.desc}</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                   {step.tags.map((t) => (
-                    <span key={t} style={{ fontSize: 10, color: "#534AB7", background: "#EEEDFE", padding: "2px 7px", borderRadius: 20 }}>{t}</span>
+                    <span key={t} style={{ fontSize: 10, color: "#3D2E8F", background: "#E8E4FF", padding: "2px 7px", borderRadius: 20 }}>{t}</span>
                   ))}
                 </div>
               </div>
               {i < steps.length - 1 && (
                 <div className="process-connector" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "44px 4px 0" }}>
                   <div style={{ display: "flex", alignItems: "center", width: 36 }}>
-                    <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#AFA9EC", flexShrink: 0 }} />
-                    <div style={{ flex: 1, height: 1, background: "#AFA9EC" }} />
-                    <IconArrowRight size={13} color="#7F77DD" />
+                    <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#8B7ED4", flexShrink: 0 }} />
+                    <div style={{ flex: 1, height: 1, background: "#8B7ED4" }} />
+                    <IconArrowRight size={13} color="#3D2E8F" />
                   </div>
                 </div>
               )}
@@ -70,19 +70,18 @@ export default function Process() {
         {/* Timeline scale */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10 }}>
           {scales.map((s) => (
-            <div key={s.label} style={{ background: "#fff", border: "0.5px solid #E2E0F7", borderRadius: 10, padding: "16px 18px" }}>
-              <span style={{ fontSize: 11, fontWeight: 500, background: "#EEEDFE", color: "#534AB7", padding: "3px 10px", borderRadius: 20, display: "inline-block", marginBottom: 10 }}>{s.label}</span>
-              <p style={{ fontSize: 13, color: "#7F77DD", fontWeight: 500, marginBottom: 5 }}>{s.time}</p>
+            <div key={s.label} style={{ background: "#fff", border: "0.5px solid #D8D6EE", borderRadius: 10, padding: "16px 18px" }}>
+              <span style={{ fontSize: 11, fontWeight: 500, background: "#E8E4FF", color: "#3D2E8F", padding: "3px 10px", borderRadius: 20, display: "inline-block", marginBottom: 10 }}>{s.label}</span>
+              <p style={{ fontSize: 13, color: "#3D2E8F", fontWeight: 500, marginBottom: 5 }}>{s.time}</p>
               <p style={{ fontSize: 11, color: "#888780", lineHeight: 1.5, marginBottom: 10 }}>{s.desc}</p>
-              <div style={{ height: 4, background: "#EEEDFE", borderRadius: 2 }}>
-                <div style={{ height: 4, borderRadius: 2, background: "#7F77DD", width: s.fill }} />
+              <div style={{ height: 4, background: "#E8E4FF", borderRadius: 2 }}>
+                <div style={{ height: 4, borderRadius: 2, background: "#3D2E8F", width: s.fill }} />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Responsive Styles block to fix mobile squishing */}
       <style>{`
         @media (max-width: 768px) {
           .process-grid {
