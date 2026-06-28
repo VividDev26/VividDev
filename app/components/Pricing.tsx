@@ -1,4 +1,4 @@
-import { IconCheck, IconRefresh, IconCreditCard, IconFile, IconLayout, IconCode } from "@tabler/icons-react";
+import { IconCheck, IconRefresh, IconCreditCard, IconFile, IconLayout, IconCode, IconBrain } from "@tabler/icons-react";
 
 const tiers = [
   {
@@ -18,6 +18,22 @@ const tiers = [
     cta: "Get started",
   },
   {
+    name: "AI Chatbot",
+    price: "$1,500",
+    sub: "Basic AI integration · one-time",
+    featured: false,
+    features: ["Custom trained on your business", "Embedded on your website", "Single-purpose assistant", "Custom UI to match your brand", "30 days of support"],
+    cta: "Get started",
+  },
+  {
+    name: "AI Advanced",
+    price: "$2,500–$3,500",
+    sub: "Full AI integration · one-time",
+    featured: false,
+    features: ["Multi-purpose AI assistant", "Trained on your docs & FAQs", "Custom UI & admin dashboard", "Usage tracking & analytics", "60 days of support"],
+    cta: "Get started",
+  },
+  {
     name: "Custom",
     price: "From $6,500",
     sub: "Web app · scoped per project",
@@ -30,6 +46,7 @@ const tiers = [
 const explainers = [
   { icon: IconFile, tier: "Starter", rule: "You need one focused page that gets people to take one action.", examples: "e.g. Product launch, event sign-up, local business presence, portfolio intro." },
   { icon: IconLayout, tier: "Studio", rule: "You need multiple pages but users don't need to log in to anything.", examples: "e.g. Agency site, restaurant, services business, portfolio with case studies." },
+  { icon: IconBrain, tier: "AI Chatbot", rule: "You want a smart assistant that answers questions for your customers 24/7.", examples: "e.g. Restaurant FAQ bot, law firm intake bot, e-commerce support assistant." },
   { icon: IconCode, tier: "Custom", rule: "Your users need to log in, save data, or pay for something.", examples: "e.g. SaaS product, booking platform, marketplace, dashboard, ordering system." },
 ];
 
@@ -42,14 +59,14 @@ export default function Pricing() {
         <p style={{ fontSize: 13, color: "#888780", marginBottom: 28 }}>Fixed-price projects. You always know what you're paying before we start.</p>
 
         {/* Cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12, marginBottom: 16 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12, marginBottom: 16 }}>
           {tiers.map((t) => (
             <div key={t.name} style={{ background: "#fff", border: t.featured ? "2px solid #3D2E8F" : "0.5px solid #D8D6EE", borderRadius: 12, padding: "22px 20px" }}>
               {t.featured && (
                 <span style={{ fontSize: 10, fontWeight: 500, background: "#3D2E8F", color: "#E8E4FF", padding: "3px 10px", borderRadius: 20, display: "inline-block", marginBottom: 12 }}>Most popular</span>
               )}
               <p style={{ fontSize: 13, fontWeight: 500, color: "#1A1540", marginBottom: 4 }}>{t.name}</p>
-              <p style={{ fontSize: 28, fontWeight: 500, color: "#1A1540", lineHeight: 1, marginBottom: 2 }}>{t.price}</p>
+              <p style={{ fontSize: 24, fontWeight: 500, color: "#1A1540", lineHeight: 1, marginBottom: 2 }}>{t.price}</p>
               <p style={{ fontSize: 11, color: "#888780", marginBottom: 16 }}>{t.sub}</p>
               <div style={{ height: "0.5px", background: "#D8D6EE", marginBottom: 14 }} />
               {t.features.map((f) => (
@@ -90,6 +107,14 @@ export default function Pricing() {
               <p style={{ fontSize: 11, color: "#888780" }}>Ongoing updates, new features, and priority support.</p>
             </div>
             <span style={{ fontSize: 15, fontWeight: 500, color: "#3D2E8F", marginLeft: "auto", whiteSpace: "nowrap" }}>$650/mo</span>
+          </div>
+          <div style={{ background: "#F0EFF8", border: "0.5px solid #D8D6EE", borderRadius: 10, padding: "14px 18px", display: "flex", alignItems: "center", gap: 14 }}>
+            <IconBrain size={20} color="#3D2E8F" style={{ flexShrink: 0 }} />
+            <div>
+              <p style={{ fontSize: 13, fontWeight: 500, color: "#1A1540", marginBottom: 2 }}>AI maintenance</p>
+              <p style={{ fontSize: 11, color: "#888780" }}>API costs, model updates, and performance monitoring.</p>
+            </div>
+            <span style={{ fontSize: 15, fontWeight: 500, color: "#3D2E8F", marginLeft: "auto", whiteSpace: "nowrap" }}>$150/mo</span>
           </div>
           <div style={{ background: "#F0EFF8", border: "0.5px solid #D8D6EE", borderRadius: 10, padding: "14px 18px", display: "flex", alignItems: "center", gap: 14 }}>
             <IconCreditCard size={20} color="#3D2E8F" style={{ flexShrink: 0 }} />

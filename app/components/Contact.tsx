@@ -100,6 +100,8 @@ export default function Contact() {
                   <option>Landing page — $999</option>
                   <option>Multi-page site — $2,999</option>
                   <option>Web app — from $6,500</option>
+                  <option>AI chatbot — $1,500</option>
+                  <option>AI advanced — $2,500–$3,500</option>
                   <option>Not sure yet</option>
                 </select>
               </div>

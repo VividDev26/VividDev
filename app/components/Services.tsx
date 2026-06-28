@@ -1,9 +1,10 @@
-import { IconLayout, IconCode, IconShoppingCart, IconRocket, IconDeviceMobile, IconRefresh } from "@tabler/icons-react";
+import { IconLayout, IconCode, IconShoppingCart, IconRocket, IconDeviceMobile, IconRefresh, IconBrain } from "@tabler/icons-react";
 
 const services = [
   { icon: IconLayout, title: "Web design", desc: "Custom UI from Figma to pixel-perfect code. No templates." },
   { icon: IconCode, title: "Full-stack dev", desc: "Frontend, backend, APIs, databases, and deployments." },
   { icon: IconShoppingCart, title: "E-commerce", desc: "Custom carts, Stripe payments, and order management." },
+  { icon: IconBrain, title: "AI integrations", desc: "Custom AI chatbots and LLM-powered tools built into your product." },
   { icon: IconRocket, title: "Speed & SEO", desc: "Lighthouse 100. Core Web Vitals. Ranked and fast." },
   { icon: IconDeviceMobile, title: "Mobile-first", desc: "Every build is responsive and tested across all screens." },
   { icon: IconRefresh, title: "Retainers", desc: "Ongoing support, updates, and new features as you grow." },
