@@ -5,10 +5,33 @@ import { IconMail, IconWorld, IconClock } from "@tabler/icons-react";
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", type: "Landing page — $999", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSent(true);
+      } else {
+        setError("Something went wrong. Please email us directly at hello@vividdev.io");
+      }
+    } catch {
+      setError("Something went wrong. Please email us directly at hello@vividdev.io");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -78,8 +101,11 @@ export default function Contact() {
                   style={{ width: "100%", background: "#fff", border: "0.5px solid #8B7ED4", borderRadius: 7, padding: "9px 12px", fontSize: 13, color: "#1A1540", resize: "none", height: 80 }}
                 />
               </div>
-              <button onClick={handleSubmit} style={{ width: "100%", background: "#3D2E8F", color: "#E8E4FF", border: "none", borderRadius: 7, padding: 11, fontSize: 13, fontWeight: 500, cursor: "pointer" }}>
-                Send message →
+              {error && (
+                <p style={{ fontSize: 12, color: "#E24B4A", marginBottom: 10 }}>{error}</p>
+              )}
+              <button onClick={handleSubmit} disabled={loading} style={{ width: "100%", background: loading ? "#8B7ED4" : "#3D2E8F", color: "#E8E4FF", border: "none", borderRadius: 7, padding: 11, fontSize: 13, fontWeight: 500, cursor: loading ? "not-allowed" : "pointer" }}>
+                {loading ? "Sending..." : "Send message →"}
               </button>
             </>
           )}
