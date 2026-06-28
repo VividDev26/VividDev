@@ -6,29 +6,31 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", type: "Landing page — $999", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleSubmit = async (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
+    if (!form.name || !form.email || !form.message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
     setLoading(true);
-    setError("");
-
     try {
-      const res = await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-
-      const data = await res.json();
-
-      if (data.success) {
+      if (response.ok) {
         setSent(true);
+        setForm({ name: "", email: "", type: "Landing page — $999", message: "" });
       } else {
-        setError("Something went wrong. Please email us directly at hello@vividdev.io");
+        const errData = await response.json();
+        alert(errData.error || "Something went wrong. Please try again.");
       }
-    } catch {
-      setError("Something went wrong. Please email us directly at hello@vividdev.io");
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Failed to connect to the server. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -63,7 +65,7 @@ export default function Contact() {
               <p style={{ fontSize: 12, color: "#5F5E5A" }}>We'll be in touch within 24 hours.</p>
             </div>
           ) : (
-            <>
+            <form onSubmit={handleSubmit}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 10 }}>
                 {[
                   { label: "Name", key: "name", placeholder: "Your name", type: "text" },
@@ -101,13 +103,14 @@ export default function Contact() {
                   style={{ width: "100%", background: "#fff", border: "0.5px solid #8B7ED4", borderRadius: 7, padding: "9px 12px", fontSize: 13, color: "#1A1540", resize: "none", height: 80 }}
                 />
               </div>
-              {error && (
-                <p style={{ fontSize: 12, color: "#E24B4A", marginBottom: 10 }}>{error}</p>
-              )}
-              <button onClick={handleSubmit} disabled={loading} style={{ width: "100%", background: loading ? "#8B7ED4" : "#3D2E8F", color: "#E8E4FF", border: "none", borderRadius: 7, padding: 11, fontSize: 13, fontWeight: 500, cursor: loading ? "not-allowed" : "pointer" }}>
+              <button
+                type="submit"
+                disabled={loading}
+                style={{ width: "100%", background: loading ? "#8B7ED4" : "#3D2E8F", color: "#E8E4FF", border: "none", borderRadius: 7, padding: 11, fontSize: 13, fontWeight: 500, cursor: loading ? "not-allowed" : "pointer" }}
+              >
                 {loading ? "Sending..." : "Send message →"}
               </button>
-            </>
+            </form>
           )}
         </div>
       </div>
