@@ -24,7 +24,7 @@ TECH STACK: Next.js, TypeScript, React, Supabase, Stripe, Figma-to-code
 YOUR JOB:
 1. Greet the user warmly and ask what they're looking to build
 2. Ask qualifying questions naturally to understand their project:
-   - What type of project would you like to build? (landing page, site, web app, AI chatbot)
+   - What type of project? (landing page, site, web app, AI chatbot)
    - What does their business do?
    - Do they have existing branding/design?
    - What's their rough budget?
@@ -45,7 +45,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hey! I'm Vivid, VividDev's AI assistant 👋 Are you looking to build a website or web app? I can help figure out what you need and get you connected with Mira and Rami. What are you looking to build?",
+      content: "Hey! I'm Vivid, VividDev's AI assistant 👋 Looking to build a website or web app? I can help figure out what you need and get you connected with Mira and Rami. What are you looking to build?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -135,7 +135,7 @@ export default function Chatbot() {
       {open && (
         <div style={{
           position: "fixed", bottom: 92, right: 24, zIndex: 999,
-          width: 360, maxHeight: 520,
+          width: 420, maxHeight: 600,
           background: "#fff", borderRadius: 16,
           boxShadow: "0 8px 48px rgba(61,46,143,0.18)",
           display: "flex", flexDirection: "column",
@@ -159,7 +159,7 @@ export default function Chatbot() {
           </div>
 
           {/* Messages */}
-          <div style={{ flex: 1, overflowY: "auto", padding: "16px 14px", display: "flex", flexDirection: "column", gap: 10, minHeight: 0, maxHeight: 320 }}>
+          <div style={{ flex: 1, overflowY: "auto", padding: "16px 14px", display: "flex", flexDirection: "column", gap: 10, minHeight: 0, maxHeight: 400 }}>
             {messages.map((m, i) => (
               <div key={i} style={{ display: "flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start" }}>
                 <div style={{
