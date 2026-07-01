@@ -135,7 +135,7 @@ export default function Chatbot() {
       {open && (
         <div style={{
           position: "fixed", bottom: 92, right: 24, zIndex: 999,
-          width: 420, maxHeight: 600,
+          width: 600, maxHeight: 740,
           background: "#fff", borderRadius: 16,
           boxShadow: "0 8px 48px rgba(61,46,143,0.18)",
           display: "flex", flexDirection: "column",
@@ -159,7 +159,7 @@ export default function Chatbot() {
           </div>
 
           {/* Messages */}
-          <div style={{ flex: 1, overflowY: "auto", padding: "16px 14px", display: "flex", flexDirection: "column", gap: 10, minHeight: 0, maxHeight: 400 }}>
+          <div style={{ flex: 1, overflowY: "auto", padding: "16px 14px", display: "flex", flexDirection: "column", gap: 10, minHeight: 0, maxHeight: 540 }}>
             {messages.map((m, i) => (
               <div key={i} style={{ display: "flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start" }}>
                 <div style={{
